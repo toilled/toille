@@ -1,0 +1,63 @@
+html,
+body {
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+header {
+    height: 75px;
+    padding: 5px;
+    background: rgb(255,255,255);
+    background: linear-gradient(180deg, rgb(38, 193, 246) 0%, rgba(230,240,255,1) 30%, rgba(230,240,255,1) 80%, rgb(38, 193, 246) 100%);
+}
+
+.title {
+    margin-left: 10px;
+}
+
+nav {
+    height: 25px;
+}
+
+.menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background: linear-gradient(180deg, rgb(38, 193, 246) 0%, rgba(240,250,255,1) 95%);
+    position: sticky;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+}
+
+.menuItem {
+    /*float: left;*/
+    /*display: block;*/
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+li a:hover:not(.active) {
+    background-color: rgb(0, 189, 255);
+}
+
+li a.active {
+    color: white;
+    background-color: #04AA6D;
+}
+
+main {
+    height: calc(100% - 130px);
+    padding: 10px;
+    background: rgb(255,255,255);
+    background: linear-gradient(180deg, rgba(240,250,255,1) 0%, rgba(255,255,255,1) 90%, rgb(38, 193, 246) 100%);
+}
+
+#content {
+    margin: 4px
+}
