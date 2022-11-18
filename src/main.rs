@@ -5,13 +5,18 @@ struct Page {
     id: usize,
     name: String,
     title: String,
-    body: String
+    body: Vec<String>
 }
 
 #[derive(Properties, PartialEq)]
 struct PagesListProps {
     pages: Vec<Page>,
     on_click: Callback<Page>
+}
+
+#[derive(Properties, PartialEq)]
+struct ParagraphProps {
+    lines: Vec<String>
 }
 
 #[function_component(PagesList)]
@@ -32,6 +37,16 @@ fn pages_list(PagesListProps { pages, on_click }: &PagesListProps) -> Html {
     }).collect()
 }
 
+#[function_component(Paragraphs)]
+fn paragraphs(ParagraphProps { lines }: &ParagraphProps) -> Html {
+    lines.iter().map(|line| {
+        let text = line.clone();
+        html! {
+            <p>{ text }</p>
+        }
+    }).collect()
+}
+
 #[derive(Clone, Properties, PartialEq)]
 struct PagesDetailsProps {
     page: Page,
@@ -42,7 +57,7 @@ fn page_details(PagesDetailsProps { page }: &PagesDetailsProps) -> Html {
     html! {
         <div>
             <h3>{ page.title.clone() }</h3>
-            <p>{ page.body.clone() }</p>
+            <Paragraphs lines={page.body.clone()} />
         </div>
     }
 }
@@ -50,23 +65,31 @@ fn page_details(PagesDetailsProps { page }: &PagesDetailsProps) -> Html {
 #[function_component(App)]
 fn app() -> Html {
     let pages = vec![
-        Page {
-            id: 1,
-            name: "Home".to_string(),
-            title: "Home".to_string(),
-            body: "This is the home page of Elliot built using Rust.".to_string(),
+    Page {
+        id: 1,
+        name: "Home".to_string(),
+        title: "Home".to_string(),
+        body: vec![
+            "This is the home page of Elliot built using Rust.".to_string(),
+            "I'm still learning so it's very basic!".to_string()
+        ],
         },
         Page {
             id: 2,
             name: "About".to_string(),
             title: "About Me".to_string(),
-            body: "I am a BSc (Hons) graduate who has been confident working with computers in some way for most of my life.".to_string(),
+            body: vec![
+                "I am a BSc (Hons) graduate who has been confident working with computers in some way for most of my life.".to_string()
+            ],
         },
         Page {
             id: 3,
             name: "Interests".to_string(),
             title: "My Interestes".to_string(),
-            body: "I develop new code ideas as a hobby in my spare time, actively keeping a check on new languages and new computing technologies on the internet.".to_string(),
+            body: vec![
+                "I develop new code ideas as a hobby in my spare time, actively keeping a check on new languages and new computing technologies on the internet.".to_string(),
+                "I keep up to date with music and play musical instruments including the guitar.".to_string()
+            ],
         },
     ];
 
