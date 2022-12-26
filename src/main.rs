@@ -1,22 +1,12 @@
 use yew::prelude::*;
-
-#[derive(Clone, PartialEq)]
-struct Page {
-    id: usize,
-    name: String,
-    title: String,
-    body: Vec<String>
-}
+pub mod components;
+use crate::components::page::Page;
+use crate::components::page::PageDetails;
 
 #[derive(Properties, PartialEq)]
 struct PagesListProps {
     pages: Vec<Page>,
     on_click: Callback<Page>
-}
-
-#[derive(Properties, PartialEq)]
-struct ParagraphProps {
-    lines: Vec<String>
 }
 
 #[function_component(PagesList)]
@@ -37,42 +27,17 @@ fn pages_list(PagesListProps { pages, on_click }: &PagesListProps) -> Html {
     }).collect()
 }
 
-#[function_component(Paragraphs)]
-fn paragraphs(ParagraphProps { lines }: &ParagraphProps) -> Html {
-    lines.iter().map(|line| {
-        let text = line.clone();
-        html! {
-            <p>{ text }</p>
-        }
-    }).collect()
-}
-
-#[derive(Clone, Properties, PartialEq)]
-struct PagesDetailsProps {
-    page: Page,
-}
-
-#[function_component(PageDetails)]
-fn page_details(PagesDetailsProps { page }: &PagesDetailsProps) -> Html {
-    html! {
-        <div>
-            <h3>{ page.title.clone() }</h3>
-            <Paragraphs lines={page.body.clone()} />
-        </div>
-    }
-}
-
 #[function_component(App)]
 fn app() -> Html {
     let pages = vec![
-    Page {
-        id: 1,
-        name: "Home".to_string(),
-        title: "Home".to_string(),
-        body: vec![
-            "This is the home page of Elliot built using Rust.".to_string(),
-            "I'm still learning so it's very basic!".to_string()
-        ],
+        Page {
+            id: 1,
+            name: "Home".to_string(),
+            title: "Home".to_string(),
+            body: vec![
+                "This is the home page of Elliot built using Rust.".to_string(),
+                "I'm still learning so it's very basic!".to_string()
+            ],
         },
         Page {
             id: 2,
