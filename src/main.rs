@@ -2,30 +2,7 @@ use yew::prelude::*;
 pub mod components;
 use crate::components::page::Page;
 use crate::components::page::PageDetails;
-
-#[derive(Properties, PartialEq)]
-struct PagesListProps {
-    pages: Vec<Page>,
-    on_click: Callback<Page>
-}
-
-#[function_component(PagesList)]
-fn pages_list(PagesListProps { pages, on_click }: &PagesListProps) -> Html {
-    let on_click = on_click.clone();
-    pages.iter().map(|page| {
-        let on_page_select = {
-            let on_click = on_click.clone();
-            let page = page.clone();
-            Callback::from(move |_| {
-                on_click.emit(page.clone())
-            })
-        };
-
-        html! {
-            <li class="menuItem" onclick={on_page_select}>{format!("{}", page.name)}</li>
-        }
-    }).collect()
-}
+use crate::components::pages_list_mod::PagesList;
 
 #[function_component(App)]
 fn app() -> Html {
