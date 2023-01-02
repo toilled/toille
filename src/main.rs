@@ -1,36 +1,32 @@
 use yew::prelude::*;
 pub mod components;
-use crate::components::page::Page;
-use crate::components::page::PageDetails;
+use crate::components::page::{Page, PageDetails};
 use crate::components::pages_list_mod::PagesList;
 
 #[function_component(App)]
 fn app() -> Html {
     let pages = vec![
         Page {
-            id: 1,
             name: "Home".to_string(),
             title: "Home".to_string(),
             body: vec![
                 "This is the home page of Elliot built using Rust.".to_string(),
-                "I'm still learning so it's very basic!".to_string()
+                "I'm still learning so it's very basic!".to_string(),
             ],
         },
         Page {
-            id: 2,
             name: "About".to_string(),
             title: "About Me".to_string(),
             body: vec![
-                "I am a BSc (Hons) graduate who has been confident working with computers in some way for most of my life.".to_string()
+                "I am a BSc (Hons) graduate who has been confident working with computers in some way for most of my life.".to_string(),
             ],
         },
         Page {
-            id: 3,
             name: "Interests".to_string(),
             title: "My Interestes".to_string(),
             body: vec![
                 "I develop new code ideas as a hobby in my spare time, actively keeping a check on new languages and new computing technologies on the internet.".to_string(),
-                "I keep up to date with music and play musical instruments including the guitar.".to_string()
+                "I keep up to date with music and play musical instruments including the guitar.".to_string(),
             ],
         },
     ];

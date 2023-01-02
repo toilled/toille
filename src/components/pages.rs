@@ -3,7 +3,6 @@ pub mod page {
 
     #[derive(Clone, PartialEq)]
     pub struct Page {
-        pub id: usize,
         pub name: String,
         pub title: String,
         pub body: Vec<String>
