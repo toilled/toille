@@ -46,18 +46,16 @@ fn app() -> Html {
 
     html! {
         <>
-            <header>
-                <h1 class="title">{ "Elliot Dickerson" }</h1>
-            </header>
-            <nav>
-                <ul class="menu">
-                    <PagesList pages={pages}  on_click={on_page_select.clone()} />
-                </ul>
-            </nav>
-            <main>
-                <div id="content">
-                    { for details }
-                </div>
+            <main class="container">
+                <nav>
+                    <ul>
+                        <li><strong>{ "Elliot Dickerson" }</strong></li>
+                    </ul>
+                    <ul>
+                        <PagesList pages={pages}  on_click={on_page_select.clone()} />
+                    </ul>
+                </nav>
+                { for details }
             </main>
         </>
     }

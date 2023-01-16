@@ -16,10 +16,10 @@ pub mod page {
     #[function_component(PageDetails)]
     pub fn page_details(PagesDetailsProps { page }: &PagesDetailsProps) -> Html {
         html! {
-            <div>
-                <h3>{ page.title.clone() }</h3>
+            <article>
+                <header>{ page.title.clone() }</header>
                 <Paragraphs lines={page.body.clone()} />
-            </div>
+            </article>
         }
     }
 

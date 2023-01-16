@@ -21,7 +21,9 @@ pub mod pages_list_mod {
             };
 
             html! {
-                <li class="menuItem" onclick={on_page_select}>{format!("{}", page.name)}</li>
+                <li>
+                    <a href={format!("#{}", page.name)} onclick={on_page_select}>{format!("{}", page.name)}</a>
+                </li>
             }
         }).collect()
     }
