@@ -31,9 +31,8 @@ pub mod page {
     #[function_component(Paragraphs)]
     pub fn paragraphs(ParagraphProps { lines }: &ParagraphProps) -> Html {
         lines.iter().map(|line| {
-            let text = line.clone();
             html! {
-                <p>{ text }</p>
+                <p>{ line.clone() }</p>
             }
         }).collect()
     }

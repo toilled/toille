@@ -40,7 +40,7 @@ fn app() -> Html {
         })
     };
 
-    let details = selected_page.as_ref().map(|page| html! {
+    let page_details = selected_page.as_ref().map(|page| html! {
             <PageDetails page={page.clone()} />
     });
 
@@ -60,7 +60,7 @@ fn app() -> Html {
                         <PagesList pages={pages}  on_click={on_page_select.clone()} />
                     </ul>
                 </nav>
-                { for details }
+                { for page_details }
             </main>
         </>
     }
