@@ -49,7 +49,12 @@ fn app() -> Html {
             <main class="container">
                 <nav>
                     <ul>
-                        <li><strong>{ "Elliot Dickerson" }</strong></li>
+                        <li>
+                            <hgroup>
+                                <h1>{ "Elliot Dickerson" }</h1>
+                                <h2>{ "A site to test things" }</h2>
+                            </hgroup>
+                        </li>
                     </ul>
                     <ul>
                         <PagesList pages={pages}  on_click={on_page_select.clone()} />

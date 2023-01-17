@@ -17,7 +17,7 @@ pub mod page {
     pub fn page_details(PagesDetailsProps { page }: &PagesDetailsProps) -> Html {
         html! {
             <article>
-                <header>{ page.title.clone() }</header>
+                <header><strong>{ page.title.clone() }</strong></header>
                 <Paragraphs lines={page.body.clone()} />
             </article>
         }
