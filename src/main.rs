@@ -1,6 +1,6 @@
 use yew::prelude::*;
 pub mod components;
-use crate::components::page::{Page, PageDetails};
+use crate::components::page::{Page, PageContent};
 use crate::components::pages_list_mod::PagesList;
 
 #[function_component(App)]
@@ -40,13 +40,13 @@ fn app() -> Html {
         })
     };
 
-    let page_details = selected_page.as_ref().map(|page| html! {
-            <PageDetails page={page.clone()} />
+    let page_content = selected_page.as_ref().map(|page| html! {
+        <PageContent page={page.clone()} />
     });
 
     html! {
         <>
-            <main class="container animate__animated animate__fadeInBottomRight">
+            <main class={"container animate__animated animate__fadeInBottomRight"}>
                 <nav>
                     <ul class={"animate__animated animate__slideInLeft"}>
                         <li>
@@ -60,7 +60,7 @@ fn app() -> Html {
                         <PagesList pages={pages}  on_click={on_page_select.clone()} />
                     </ul>
                 </nav>
-                { for page_details }
+                { for page_content }
             </main>
         </>
     }

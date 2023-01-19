@@ -9,12 +9,12 @@ pub mod page {
     }
 
     #[derive(Clone, Properties, PartialEq)]
-    pub struct PagesDetailsProps {
+    pub struct PageContentProps {
             pub page: Page,
     }
 
-    #[function_component(PageDetails)]
-    pub fn page_details(PagesDetailsProps { page }: &PagesDetailsProps) -> Html {
+    #[function_component(PageContent)]
+    pub fn page_content(PageContentProps { page }: &PageContentProps) -> Html {
         html! {
             <article class={"animate__animated animate__zoomIn"}>
                 <header><strong>{ page.title.clone() }</strong></header>
