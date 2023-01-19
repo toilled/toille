@@ -46,7 +46,7 @@ fn app() -> Html {
 
     html! {
         <>
-            <main class="container">
+            <main class="container animate__animated animate__fadeInBottomRight">
                 <nav>
                     <ul class={"animate__animated animate__slideInLeft"}>
                         <li>
