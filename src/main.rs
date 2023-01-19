@@ -48,7 +48,7 @@ fn app() -> Html {
         <>
             <main class="container">
                 <nav>
-                    <ul>
+                    <ul class={"animate__animated animate__slideInLeft"}>
                         <li>
                             <hgroup>
                                 <h1>{ "Elliot Dickerson" }</h1>
@@ -56,7 +56,7 @@ fn app() -> Html {
                             </hgroup>
                         </li>
                     </ul>
-                    <ul>
+                    <ul class={"animate__animated animate__slideInRight"}>
                         <PagesList pages={pages}  on_click={on_page_select.clone()} />
                     </ul>
                 </nav>

@@ -16,7 +16,7 @@ pub mod page {
     #[function_component(PageDetails)]
     pub fn page_details(PagesDetailsProps { page }: &PagesDetailsProps) -> Html {
         html! {
-            <article>
+            <article class={"animate__animated animate__zoomIn"}>
                 <header><strong>{ page.title.clone() }</strong></header>
                 <Paragraphs lines={page.body.clone()} />
             </article>
