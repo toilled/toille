@@ -21,7 +21,7 @@ pub mod pages_list_mod {
 
             html! {
                 <li>
-                    <a onclick={on_page_select} style={ "cursor: pointer;" }>{format!("{}", page.name)}</a>
+                    <a onclick={on_page_select} style={ "cursor: pointer;" }>{ page.name }</a>
                 </li>
             }
         }).collect()

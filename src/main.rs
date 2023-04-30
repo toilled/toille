@@ -7,27 +7,34 @@ use crate::components::pages_list_mod::PagesList;
 fn app() -> Html {
     let pages = vec![
         Page {
-            name: "Home".to_string(),
-            title: "Home".to_string(),
-            body: vec![
-                "This is the home page of Elliot built using Rust.".to_string(),
-                "I'm still learning so it's very basic!".to_string(),
-            ],
+            name: "Home",
+            title: "Home",
+            body: html! {
+                <>
+                    <p>{"This is the home page of Elliot built using Rust."}</p>
+                    <p>{"I'm still learning so it's very basic!"}</p>
+                    <p>{"I will make the source code available "}<a href={"https://github.com/toilled/toille"}>{"here"}</a>{"."}</p>
+                </>
+            },
         },
         Page {
-            name: "About".to_string(),
-            title: "About Me".to_string(),
-            body: vec![
-                "I am a BSc (Hons) graduate who has been confident working with computers in some way for most of my life.".to_string(),
-            ],
+            name: "About",
+            title: "About Me",
+            body: html! {
+                <>
+                    <p>{"I am a BSc (Hons) graduate who has been confident working with computers in some way for most of my life."}</p>
+                </>
+            },
         },
         Page {
-            name: "Interests".to_string(),
-            title: "My Interestes".to_string(),
-            body: vec![
-                "I develop new code ideas as a hobby in my spare time, actively keeping a check on new languages and new computing technologies on the internet.".to_string(),
-                "I keep up to date with music and play musical instruments including the guitar.".to_string(),
-            ],
+            name: "Interests",
+            title: "My Interestes",
+            body: html! {
+                <>
+                    <p>{"I develop new code ideas as a hobby in my spare time, actively keeping a check on new languages and new computing technologies on the internet."}</p>
+                    <p>{"I keep up to date with music and play musical instruments including the guitar."}</p>
+                </>
+            },
         },
     ];
 
@@ -45,24 +52,22 @@ fn app() -> Html {
     });
 
     html! {
-        <>
-            <main class={"container animate__animated animate__fadeInBottomRight"}>
-                <nav>
-                    <ul class={"animate__animated animate__slideInLeft"}>
-                        <li>
-                            <hgroup>
-                                <h1>{ "Elliot Dickerson" }</h1>
-                                <h2>{ "A site to test things" }</h2>
-                            </hgroup>
-                        </li>
-                    </ul>
-                    <ul class={"animate__animated animate__slideInRight"}>
-                        <PagesList pages={pages}  on_click={on_page_select.clone()} />
-                    </ul>
-                </nav>
-                { for page_content }
-            </main>
-        </>
+        <main class={"container animate__animated animate__fadeInBottomRight"}>
+            <nav>
+                <ul class={"animate__animated animate__slideInLeft"}>
+                    <li>
+                        <hgroup>
+                            <h1>{ "Elliot Dickerson" }</h1>
+                            <h2>{ "A site to test things" }</h2>
+                        </hgroup>
+                    </li>
+                </ul>
+                <ul class={"animate__animated animate__slideInRight"}>
+                    <PagesList pages={pages}  on_click={on_page_select.clone()} />
+                </ul>
+            </nav>
+            { for page_content }
+        </main>
     }
 }
 
