@@ -1,7 +1,8 @@
 use yew::prelude::*;
+use yew::{classes, html};
 pub mod components;
-use crate::components::page::{Page, PageContent};
-use crate::components::pages_list_mod::PagesList;
+use components::page::{Page, PageContent};
+use components::pages_list_mod::PagesList;
 
 #[function_component(App)]
 fn app() -> Html {
@@ -11,8 +12,7 @@ fn app() -> Html {
             title: "Home",
             body: html! {
                 <>
-                    <p>{"This is the home page of Elliot built using Rust."}</p>
-                    <p>{"I'm still learning so it's very basic!"}</p>
+                    <p>{"This is my home page for testing ideas built using Rust."}</p>
                     <p>{"I will make the source code available "}<a href={"https://github.com/toilled/toille"}>{"here"}</a>{"."}</p>
                 </>
             },
@@ -23,6 +23,7 @@ fn app() -> Html {
             body: html! {
                 <>
                     <p>{"I am a BSc (Hons) graduate who has been confident working with computers in some way for most of my life."}</p>
+                    <p>{"I am currently based in the Gloucestershire area"}</p>
                 </>
             },
         },
@@ -52,17 +53,17 @@ fn app() -> Html {
     });
 
     html! {
-        <main class={"container animate__animated animate__fadeInBottomRight"}>
+        <main class={classes!("container", "animate__animated", "animate__fadeInBottomRight")}>
             <nav>
-                <ul class={"animate__animated animate__slideInLeft"}>
+                <ul class={classes!("animate__animated", "animate__slideInLeft")}>
                     <li>
                         <hgroup>
-                            <h1>{ "Elliot Dickerson" }</h1>
-                            <h2>{ "A site to test things" }</h2>
+                            <h1>{"Elliot Dickerson"}</h1>
+                            <h2>{"A site to test things"}</h2>
                         </hgroup>
                     </li>
                 </ul>
-                <ul class={"animate__animated animate__slideInRight"}>
+                <ul class={classes!("animate__animated", "animate__slideInRight")}>
                     <PagesList pages={pages}  on_click={on_page_select.clone()} />
                 </ul>
             </nav>

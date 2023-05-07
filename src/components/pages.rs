@@ -16,9 +16,9 @@ pub mod page {
     #[function_component(PageContent)]
     pub fn page_content(PageContentProps { page }: &PageContentProps) -> Html {
         html! {
-            <article class={ "animate__animated animate__zoomIn" }>
-                <header><h2 style={ "margin: 0" }>{ page.title }</h2></header>
-                { page.body.clone() }
+            <article class={classes!("animate__animated", "animate__zoomIn")}>
+                <header><h2 class={classes!("no-margin")}>{page.title}</h2></header>
+                {page.body.clone()}
             </article>
         }
     }

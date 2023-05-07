@@ -9,7 +9,7 @@ pub mod pages_list_mod {
     }
 
     #[function_component(PagesList)]
-    pub fn pages_list(PagesListProps { pages, on_click }: &PagesListProps) -> Html {
+    pub fn pages_list(PagesListProps {pages, on_click}: &PagesListProps) -> Html {
         pages.iter().map(|page| {
             let on_page_select = {
                 let on_click = on_click.clone();
@@ -21,7 +21,7 @@ pub mod pages_list_mod {
 
             html! {
                 <li>
-                    <a onclick={on_page_select} style={ "cursor: pointer;" }>{ page.name }</a>
+                    <a onclick={on_page_select} class={classes!("pointer")}>{page.name}</a>
                 </li>
             }
         }).collect()

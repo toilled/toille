@@ -1,0 +1,11 @@
+body {
+    overflow: hidden; /* Hide scrollbars */
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.no-margin {
+    margin: 0;
+}
