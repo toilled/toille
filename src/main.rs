@@ -6,6 +6,8 @@ use components::pages_list_mod::PagesList;
 
 #[function_component(App)]
 fn app() -> Html {
+    let title = "Elliot Dickerson";
+    let subtitle = "A site to test things";
     let pages = vec![
         Page {
             name: "Home",
@@ -39,7 +41,16 @@ fn app() -> Html {
         },
     ];
 
-    let selected_page = use_state(|| Some(pages[0].clone()));
+    let first_page = pages[0].clone();
+
+    let selected_page = use_state(|| Some(first_page.clone()));
+
+    let on_title_click = {
+        let selected_page = selected_page.clone();
+        Callback::from(move |_e: MouseEvent| {
+            selected_page.set(Some(first_page.clone()))
+        })
+    };
 
     let on_page_select = {
         let selected_page = selected_page.clone();
@@ -57,9 +68,9 @@ fn app() -> Html {
             <nav>
                 <ul class={classes!("animate__animated", "animate__slideInLeft")}>
                     <li>
-                        <hgroup>
-                            <h1>{"Elliot Dickerson"}</h1>
-                            <h2>{"A site to test things"}</h2>
+                        <hgroup onclick={on_title_click} class={classes!("pointer")}>
+                            <h1>{title}</h1>
+                            <h2>{subtitle}</h2>
                         </hgroup>
                     </li>
                 </ul>
